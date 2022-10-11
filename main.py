@@ -89,8 +89,8 @@ def request_api():
 
     result_code_post = request_session.post(URL_BASE, data=postdata, headers=header)
     soup_code = BeautifulSoup(result_code_post.text, "html.parser")
-    code_result = soup_code.findAll("span", {"id": "answer"})[0].string
+    code_result = soup_code.findAll("span", {"id": "answer"})
     
-    print("Codigo de retorno: " + code_result)
+    print("Codigo de retorno: " + code_result[0].string)
 
 request_api()
